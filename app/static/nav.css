@@ -1,0 +1,333 @@
+ul {
+    text-transform: uppercase;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+    font-family: "inter-variable", sans-serif;
+    font-variation-settings: 'wght' 400, 'slnt' 0;
+    font-size: 1.5rem;
+    line-height: 20px;
+}
+
+.about {
+    z-index: 101;
+    position: fixed;
+    background-color: black;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    left: 1em;
+    top: 1em;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about a {
+    text-decoration: none;
+    color: white;
+}
+
+.about:hover {
+    color: black;
+    background-color: white;
+
+}
+
+.nav-toggle {
+    position: absolute;
+    left: -9999px;
+}
+
+.nav-toggle-label {
+    position: fixed;
+    top: 5rem;
+    right: 0rem;
+    width: 2rem;
+    height: 5rem;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.3s ease;
+    z-index: 101 !important;
+}
+
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    display: none;
+}
+
+.nav-toggle-label span {
+    width: 100%;
+    height: 150px;
+    width: 50px;
+    margin: 0;
+    background: #000000;
+    border-radius: 20px 0% 0% 20px;
+    transition: transform 0.3s ease;
+}
+
+
+nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background: #000000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding-top: 4rem;
+    overflow: hidden;
+    z-index: 100 !important;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+
+nav li+li {
+    margin-top: 1rem;
+}
+
+nav a {
+    display: block;
+    padding: 0.75rem 1.25rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    background: #000000;
+    /* Or a slightly different color for hover */
+}
+
+#nav-view {
+    padding: 1rem;
+    overflow-y: auto;
+    /* Adjust height calculation if needed */
+    height: calc(100vh - 4rem);
+    /* Assuming 4rem top padding */
+    color: white;
+    /* Ensure text is visible */
+}
+
+
+/* --- NEW RULES --- */
+/* Hide the UL when nav has 'content-loaded' class */
+nav.content-loaded ul {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    /* Collapse space */
+    overflow: hidden;
+    /* Prevent content spillover */
+    margin: 0;
+    /* Remove margin when hidden */
+    padding: 0;
+    /* Remove padding when hidden */
+}
+
+/* Ensure nav-view takes full available height when content is loaded */
+nav.content-loaded #nav-view {
+    height: calc(100vh - 4rem);
+    /* Adjust as needed */
+}
+
+/* --- END NEW RULES --- */
+
+
+/* Toggle behavior */
+.nav-toggle:checked+.nav-toggle-label {
+    right: calc(1rem + 250px);
+    /* Adjust if needed */
+}
+
+.nav-toggle:checked~nav {
+    transform: translateX(0);
+}
+
+.nav-toggle:checked+.nav-toggle-label {
+    right: calc(300px);
+    /* Match nav width */
+}
+
+/* loginpage */
+
+#about-view img {
+    width: 100%;
+    rotate: -20deg;
+}
+
+/* Add to app/static/nav.css (or style.css) */
+
+/* Styles for the container holding the login/signup forms */
+#nav-view .login-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    /* Adjusted gap slightly from 2rem */
+    align-items: center;
+    /* Center items horizontally */
+    padding-top: 1rem;
+    /* Add some top padding */
+}
+
+/* Styles specifically for forms loaded into the nav view */
+#nav-view form {
+    display: flex;
+    flex-direction: column;
+    /* Stack inputs/button vertically */
+    align-items: center;
+    /* Center items in the form */
+    gap: 0.8rem;
+    /* Space between inputs/button in the form */
+}
+
+/* Use the specific class for inputs within the nav */
+#nav-view .nav-input {
+    border-radius: 50px;
+
+    /* Explicit border */
+    width: 150px;
+    height: 30px;
+    padding: 0 15px;
+    /* Add padding for text */
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    box-sizing: border-box;
+    /* Include padding/border in width/height */
+}
+
+#nav-view .nav-input::placeholder {
+    color: black;
+    opacity: 0.7;
+    /* Make placeholder slightly lighter */
+}
+
+#nav-view .nav-input:focus::placeholder {
+    color: transparent;
+}
+
+#nav-view .nav-input:focus {
+    outline: 0.8px solid rgb(0, 0, 0);
+    background-color: whitesmoke;
+    border-color: rgb(0, 0, 0);
+    /* Match outline color */
+}
+
+#nav-view .nav-input:hover {
+    background-color: whitesmoke;
+}
+
+/* Use the specific class for buttons within the nav */
+#nav-view .nav-button {
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    /* Explicit border */
+    width: 90px;
+    /* Slightly wider to fit "Sign Up" */
+    height: 30px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    /* Add pointer cursor */
+    font-family: Arial, Helvetica, sans-serif;
+    /* Adjust font size if needed */
+    font-weight: 500;
+    /* Match nav link weight */
+}
+
+#nav-view .nav-button:focus {
+    /* outline: 0.8px solid rgb(0, 0, 0); */
+    background-color: whitesmoke;
+    /* border-color: rgb(0, 0, 0); */
+    /* Match outline color */
+}
+
+#nav-view .nav-button:hover {
+    background-color: whitesmoke;
+}
+
+/* Optional: Style for the signup section if needed */
+#nav-view .signup-section {
+    margin-top: 0.5rem;
+    /* Add some space above signup */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Style for error message */
+#nav-view .login-error-message {
+    color: #ff4d4d;
+    /* Brighter red */
+    font-size: 0.85rem;
+    min-height: 1.2em;
+    /* Reserve space even when empty */
+    text-align: center;
+    width: 100%;
+    /* Take full width */
+}
+
+.content-section {
+    display: none;
+    /* Hide all content sections by default */
+}
+
+.content-section.active {
+    display: block;
+    /* Show only active section */
+}
+
+.back-button {
+    border-radius: 50px;
+    border-width: 0px;
+    color: rgb(255, 255, 255);
+    background-color: black;
+    display: block;
+    rotate: 190deg;
+    font-size: 2em;
+}
+
+#addgem-view .nav-input {
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    height: 30px;
+    width: 250px;
+    border-width: 0px;
+    font-family: "inter-variable", sans-serif;
+    font-variation-settings: 'wght' 400, 'slnt' 0;
+}
+
+#addgem-view .nav-input::placeholder {
+    font-family: "inter-variable", sans-serif;
+    font-variation-settings: 'wght' 400, 'slnt' 0;
+}
+
+#addgem-view .nav-button {
+    border: none;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    width: 36px;
+    height: 36px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: "inter-variable", sans-serif;
+    font-variation-settings: 'wght' 400, 'slnt' 0;
+}
+
+.gem-stick {
+    position: fixed;
+    width: 300px;
+    top: 16rem;
+    left: 2rem;
+}

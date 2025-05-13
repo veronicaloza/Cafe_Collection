@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.typekit.net/jyc5zyn.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/nav.css" />
+    <link rel="stylesheet" href="static/list.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="static/media/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/media/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/media/favicon-16x16.png">
+    <link rel="manifest" href="static/media/site.webmanifest">
+</head>
+
+<body>
+
+    <div class="about"><a href="about.html">i</a></div>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+
+    <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+    </label>
+
+
+    <!-- <img src="stick.png" alt="coffee stick"> -->
+
+    <!-- The <nav> element itself -->
+    <nav>
+
+
+        <ul>
+            <li><a href="#list" class="nav-link" data-target="list-view">Café Catalog</a></li>
+            <!-- <li><a href="#login" class="nav-link" data-target="login-view">Log in</a></li> -->
+            <li><a href="#addgem" class="nav-link" data-target="addgem-view">Add a new GEM</a></li>
+            <!-- <li><a href="#about" class="nav-link" data-target="about-view">About</a></li> -->
+        </ul>
+
+        <div id="nav-view">
+
+            <div id="default-view" class="content-section active">
+            </div>
+
+            <div id="list-view" class="content-section">
+
+                <img src="static/media/circular-sticker.png">
+                <img id="img-two" src="static/media/wave-sticker.png">
+
+                <button class="back-button">➜</button>
+
+                <h2>Café Catalog</h2>
+
+                <div class="search-wrapper">
+                    <input type="text" id="cafe-search" placeholder="Search cafés…" />
+                    <select id="status-filter" title="Filter cafés">
+                        <option value="all">All</option>
+                        <option value="checked">✓</option>
+                        <option value="unchecked">✗</option>
+                    </select>
+                </div>
+
+                <div id="cafe-list-container" class="scrollable-list">
+                    <!-- Cafe items will be dynamically inserted here by JavaScript -->
+                </div>
+
+            </div>
+
+            <!-- Login view (hidden by default)
+            <div id="login-view" class="content-section">
+                <button class="back-button">←</button>
+                <div class="login-container">
+                    <form action="/login" method="post" id="login-form">
+                        <input class="nav-input" type="text" name="username" placeholder="Username" required>
+                        <input class="nav-input" type="password" name="password" placeholder="Password" required>
+                        <button class="nav-button" type="submit">Log In</button>
+                        <div class="login-error-message"></div>
+                    </form>
+                    <div class="signup-section">
+                        <button class="nav-button" type="button" data-target="signup-view">Sign Up</button>
+                    </div>
+                </div>
+            </div> -->
+
+            <div id="addgem-view" class="content-section">
+                <button class="back-button">➜</button>
+                <h2>Add New GEM</h2>
+                <form>
+                    <input class="nav-input" type="text" placeholder="Cafe name">
+                    <button class="nav-button" type="submit">+</button>
+                </form>
+
+                <img class="gem-stick" src="static/media/human.png">
+            </div>
+
+            <!-- <div id="about-view" class="content-section">
+                <button class="back-button">➜</button>
+                <img src="static/media/About.png" width:100%>
+            </div> -->
+
+            <div id="signup-view" class="content-section">
+                <button class="back-button">←</button>
+                <h2>Sign Up</h2>
+                <form action="/signup" method="post">
+                    <input class="nav-input" type="text" name="username" placeholder="Username" required>
+                    <input class="nav-input" type="password" name="password" placeholder="Password" required>
+                    <button class="nav-button" type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="main">
+        <div id="map" style="width:100%;"></div>
+    </div>
+    <script src="static/nav.js"></script>
+    <script src="static/list.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script src="static/script.js" async defer></script>
+
+
+</body>
+
+
+</html>
