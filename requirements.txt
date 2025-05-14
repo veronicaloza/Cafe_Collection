@@ -1,7 +1,0 @@
-fastapi
-uvicorn[standard]
-sqlalchemy
-asyncpg
-passlib[bcrypt]
-python-dotenv
-python-multipart
